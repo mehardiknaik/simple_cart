@@ -9,10 +9,10 @@ import { useEffect } from "react";
 
 export default function Home({ products }) {
   const { dispatch } = useData();
-  
-  useEffect(()=>{
+
+  useEffect(() => {
     dispatch({ type: "products", payload: products });
-  },[products])
+  }, [products]);
   return (
     <div>
       <Head>
@@ -29,9 +29,11 @@ export default function Home({ products }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const { data } = await axios.get("https://dummyjson.com/products");
+  console.log('revalidate')
   return {
     props: { products: data.products }, // will be passed to the page component as props
+    revalidate: 10, // In seconds
   };
 }
