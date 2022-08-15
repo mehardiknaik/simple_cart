@@ -10,9 +10,9 @@ import { useEffect } from "react";
 export default function Home({ products }) {
   const { dispatch } = useData();
 
-  useEffect(() => {
-    dispatch({ type: "products", payload: products });
-  }, [products]);
+  // useEffect(() => {
+  //   dispatch({ type: "products", payload: products });
+  // }, [products]);
   return (
     <div>
       <Head>
@@ -22,7 +22,7 @@ export default function Home({ products }) {
       </Head>
 
       <main className={styles.container}>
-        <Products />
+        <Products products={products}/>
         <Cart />
       </main>
     </div>

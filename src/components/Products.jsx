@@ -4,9 +4,9 @@ import styles from "../../styles/Products.module.css";
 import { useData } from "../util/context";
 
 const css = { width: "100%", height: "auto" };
-const Products = () => {
+const Products = ({products}) => {
   const {
-    data: { products, cart },
+    data: {  cart },
     dispatch,
   } = useData();
   return (
