@@ -23,6 +23,31 @@ const Cart = () => {
               />
             </div>
             <div className={styles.title}>{item.title}</div>
+            <div className={styles.qtyContainer}>
+              <button
+                className={styles.qtyButton}
+                onClick={() =>
+                  dispatch({
+                    type: "updateCart",
+                    payload: { id: item.id, qty: item.qty - 1 },
+                  })
+                }
+              >
+                -
+              </button>
+              <span>{item.qty}</span>
+              <button
+                className={styles.qtyButton}
+                onClick={() =>
+                  dispatch({
+                    type: "updateCart",
+                    payload: { id: item.id, qty: item.qty + 1 },
+                  })
+                }
+              >
+                +
+              </button>
+            </div>
           </div>
         ))}
       </div>
