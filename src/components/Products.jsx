@@ -48,7 +48,7 @@ const Products = ({products}) => {
                     })
                   }
                 >
-                  add to cart
+                  Add to Cart
                 </button>
               )}
             </div>

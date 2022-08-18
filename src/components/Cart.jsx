@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Image from "next/image";
 import styles from "../../styles/Cart.module.css";
 import { useData } from "../util/context";
@@ -8,9 +8,16 @@ const Cart = () => {
     data: { cart },
     dispatch,
   } = useData();
+
+  const total = useMemo(
+    () => cart.reduce((a, b) => (a += b.price * b.qty), 0),
+    [cart]
+  );
+  
   return (
     <div className="mainWrapper">
       <div className={"header"}>Cart</div>
+      <div> Total = {total}</div>
       <div className={styles.container}>
         {cart.map((item) => (
           <div className={styles.widget} key={item.id}>
@@ -35,7 +42,7 @@ const Cart = () => {
               >
                 -
               </button>
-              <span>{item.qty}</span>
+              <span className={styles.qty}>{item.qty}</span>
               <button
                 className={styles.qtyButton}
                 onClick={() =>

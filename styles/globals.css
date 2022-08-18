@@ -19,11 +19,22 @@ a {
   html {
     color-scheme: dark;
   }
+
   body {
     color: white;
     background: black;
   }
 }
-.mainWrapper{
-  flex:1;
+
+.mainWrapper {
+  flex: 1;
+}
+
+button {
+  background: #ff6363;
+  border: none;
+  font-size: 0.8rem;
+  padding: 0.3rem 1rem;
+  border-radius: 1rem;
+  color: #fff;
 }
